@@ -69,37 +69,6 @@ Identifier              [a-zA-Z_][a-zA-Z0-9_]*
 "virtual"				{
 							colNo+=strlen(yytext);
 						}
-"class"					{
-							colNo += strlen(yytext);
-						}
-
-"public"				{
-							colNo += strlen(yytext);
-						}
-
-"int"					{
-							colNo += strlen(yytext);
-							cout<<"int\n";
-						}
-
-\n						{
-							colNo=1;
-							lineNo++;
-						}
-
-" "						{
-							colNo += 1; 
-						}
-
-\+						{
-							colNo += strlen(yytext); 
-							cout<<"plussssssssssssssssssssssssssssssssssss\n";
-						}
-
-"-"						{
-							colNo += strlen(yytext); 
-						}
-
 \/\*                                        { BEGIN multilinecomment; }
 <multilinecomment>[^*\n]*					{;}
 <multilinecomment>"*"+[^*/\n]*				{lineNo++;}
